@@ -1,0 +1,1469 @@
+body {
+
+    font-family: 'Poppins', sans-serif;
+
+    line-height: 1.6;
+
+    margin: 0;
+
+    padding: 0;
+
+    background-color: #f4f4f4;
+
+    min-height: 200vh;
+
+    /* perspective: 1000px;  */
+    /* Enables 3D perspective */
+
+}
+
+
+header {
+
+    background: linear-gradient(135deg, #007bff, #0056b3);
+
+    color: #fff;
+
+    padding: 20px 0;
+
+    text-align: center;
+
+    transform: translateZ(50px); /* Adds depth */
+
+}
+
+.header-image, .section-image {
+
+    width: 100%; /* Make images responsive */
+
+    max-width: 800px; /* Set a max width for larger screens */
+
+    height: auto; /* Maintain aspect ratio */
+
+    border-radius: 10px; /* Rounded corners */
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
+
+    perspective: 1000px; /* Perspective for 3D effect */
+    margin: 0px 1rem;
+
+}
+
+
+
+
+.main-section-image {
+    height: 90vh; /* Set the height to 90% of the viewport height */
+    width: 100%; /* Set the width to 100% of the screen */
+    object-fit: cover; /* Ensure the image covers the entire area without distortion */
+    display: block; /* Remove any inline spacing */
+}
+
+
+.header-image:hover, .section-image:hover {
+
+    transform: translateZ(10px) rotateY(5deg); /* 3D effect on hover */
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+
+}
+
+.navbar {
+
+    background-color: #0056b3; /* Slightly darker blue for the navbar */
+
+    padding: 15px 20px; /* Padding for the navbar */
+
+    position: sticky !important; /* Make the navbar sticky */
+
+    top: 0px; /* Stick to the top */
+
+    z-index: 1000; /* Ensure it stays above other content */
+
+    transition: background-color 0.3s; /* Smooth transition for background color */
+
+}
+
+
+.navbar .container {
+
+    display: flex; /* Use flexbox for layout */
+
+    justify-content: space-between; /* Space between logo and links */
+
+    align-items: center; /* Center items vertically */
+
+}
+
+
+.logo {
+
+    color: white; /* White color for the logo */
+
+    font-size: 24px; /* Font size for the logo */
+
+    text-decoration: none; /* Remove underline */
+
+}
+
+
+.nav-links {
+
+    list-style: none; /* Remove default list styling */
+
+    display: flex; /* Use flexbox for links */
+
+    margin: 0; /* Remove default margin */
+
+    padding: 0; /* Remove default padding */
+
+}
+
+
+.nav-links li {
+
+    margin-left: 20px; /* Space between links */
+
+}
+
+
+.nav-links a {
+
+    color: white; /* White color for links */
+
+    text-decoration: none; /* Remove underline */
+
+    font-size: 16px; /* Font size for links */
+
+    transition: color 0.3s, transform 0.3s; /* Smooth transition for hover effect */
+    padding: 5px 10px;
+
+}
+
+
+.nav-links a:hover {
+
+    color: #f0f8ff; /* Light color on hover */
+
+    transform: scale(1.1); /* Slightly enlarge the link on hover */
+
+    background-color: rgba(255, 255, 255, 0.2); /* Add a light background on hover */
+
+    border-radius: 5px; /* Rounded corners for the hover effect */
+
+    padding: 5px 10px; /* Add padding to the hover effect */
+
+    text-decoration: none; /
+
+}
+
+
+/* Responsive Styles */
+
+@media (max-width: 768px) {
+
+    .nav-links {
+
+        flex-direction: column; /* Stack links vertically on small screens */
+
+        display: none; /* Hide links by default */
+
+        position: absolute; /* Position links absolutely */
+
+        background-color: #0056b3; /* Background color for dropdown */
+
+        top: 60px; /* Position below the navbar */
+
+        left: 0; /* Align to the left */
+
+        width: 100%; /* Full width */
+
+        padding: 10px 0; /* Padding for dropdown */
+
+    }
+
+
+    .navbar.active .nav-links {
+
+        display: flex; /* Show links when navbar is active */
+
+    }
+
+
+    .navbar .toggle {
+
+        display: block; /* Show toggle button */
+
+        cursor: pointer; /* Pointer cursor */
+
+    }
+
+}
+
+
+/* Toggle Button Styles */
+
+.toggle {
+
+    display: none; /* Hide toggle button by default */
+
+    font-size: 24px; /* Font size for toggle button */
+
+    color: white; /* Color for toggle button */
+
+}
+
+
+.container {
+
+    width: 80%;
+
+    margin: auto;
+
+    transform-style: preserve-3d; /* Enables 3D transformations */
+
+}
+
+.share-button {
+    font-size: x-large;
+
+    position: fixed;
+
+    bottom: 20px;
+
+    right: 20px;
+
+    background-color: #007bff;
+
+    color: white;
+
+    border-radius: 5px;
+
+    padding: 15px;
+
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+
+    transition: background-color 0.3s;
+
+    z-index: 1000;
+
+}
+
+
+.share-button:hover {
+
+    background-color: #0056b3;
+
+}
+
+
+.share-options {
+
+    display: none;
+
+    flex-direction: column;
+
+    position: absolute;
+
+    bottom: 100%;
+
+    right: 0;
+
+    background-color: #fff;
+
+    border-radius: 5px;
+
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+
+    margin-bottom: 0px;
+
+}
+
+
+.share-button:hover .share-options {
+
+    display: flex;
+
+}
+
+
+.share-option {
+
+    padding: 10px;
+
+    color: #007bff;
+
+    text-decoration: none;
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+
+.share-option:hover {
+
+    background-color: #f1f1f1;
+
+}
+
+
+.share-option i {
+
+    margin-right: 8px;
+
+}
+
+
+
+#about {
+
+    background-color: #f9f9f9; /* Light background for the section */
+
+    padding: 40px 20px; /* Padding for top/bottom and left/right */
+
+    border-radius: 10px; /* Rounded corners */
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+
+    margin: 20px 1rem; /* Margin for spacing between sections */
+
+}
+
+
+#about h2 {
+
+    text-align: center; /* Center the heading */
+
+    color: #333; /* Darker color for better readability */
+
+    margin-bottom: 20px; /* Space below the heading */
+
+}
+
+
+#about h3 {
+
+    color: #007bff; /* Blue color for subheadings */
+
+    margin-top: 20px; /* Space above subheadings */
+
+}
+
+
+.values-container {
+
+    display: flex; /* Use flexbox for layout */
+
+    justify-content: space-between; /* Space between value cards */
+
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+
+    margin: 20px 0; /* Margin for spacing */
+
+}
+
+
+.value-card {
+
+    background: #ffffff; /* White background for value cards */
+
+    border: 1px solid #007bff; /* Border color */
+
+    border-radius: 5px; /* Rounded corners for value cards */
+
+    padding: 20px; /* Padding for content */
+
+    margin: 10px; /* Margin for spacing between cards */
+
+    flex: 1 1 30%; /* Flex-grow, flex-shrink, and flex-basis */
+
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
+
+}
+
+
+.value-card h4 {
+
+    color: #007bff; /* Blue color for value titles */
+
+    margin-top: 0; /* Remove top margin for headings */
+
+}
+
+
+.value-card p {
+
+    color: #555; /* Dark gray color for value descriptions */
+
+}
+
+
+.value-card:hover {
+
+    transform: translateY(-5px); /* Lift effect on hover */
+
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3); /* Deeper shadow on hover */
+
+}
+
+.carousel {
+
+    margin: 20px 0; /* Add some margin above and below the carousel */
+
+}
+
+
+.carousel-item {
+
+    height: 90vh; /* Set the height of the carousel item to 90% of the viewport height */
+
+}
+
+
+.carousel-item img {
+
+    height: 100%; /* Make the image fill the height of the carousel item */
+
+    object-fit: cover; /* Ensure the image covers the entire area without distortion */
+
+}
+
+
+.carousel-caption {
+
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for captions */
+
+    color: white; /* White text color for better contrast */
+
+    padding: 10px; /* Padding around the caption text */
+
+    border-radius: 5px; /* Rounded corners for captions */
+
+}
+
+
+.carousel-control-prev-icon,
+
+.carousel-control-next-icon {
+
+    background-color: rgba(255, 255, 255, 0.5); /* Background for control icons */
+
+    border-radius: 50%; /* Round control icons */
+
+}
+
+
+.carousel-control-prev-icon:hover,
+
+.carousel-control-next-icon:hover {
+
+    background-color: rgba(255, 255, 255, 1); /* Solid background on hover */
+    padding: 30px;
+    color: black;
+
+}
+
+.carousel-control-prev,
+
+.carousel-control-next {
+
+    width: 5% !important;
+}
+
+.carousel-control-prev:hover,
+
+.carousel-control-next:hover {
+
+    background-color: rgba(255, 255, 255, 0.3);
+    width: 5%;
+
+}
+
+.sr-only :hover{
+color: black;
+}
+
+h1 {
+
+    margin: 0;
+
+}
+
+
+.tagline {
+
+    font-size: 1.2em;
+
+    margin: 10px 0;
+
+}
+
+
+.cta-button {
+
+    background: #fff;
+
+    color: #2bb15c;
+
+    padding: 10px 20px;
+
+    text-decoration: none;
+
+    border-radius: 5px;
+
+    font-weight: bold;
+
+}
+
+section {
+
+    padding: 3rem;
+
+    margin: 2rem 0;
+
+    background: #fff;
+
+    border-radius: 10px;
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+
+}
+
+
+section:hover {
+
+    transform: translateY(-10px) scale(1.02); /* Lift effect on hover */
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+
+}
+
+.cta-button {
+
+    background: #fff;
+
+    color: #007bff;
+
+    padding: 10px 20px;
+
+    text-decoration: none;
+
+    border-radius: 5px;
+
+    font-weight: bold;
+
+    transition: background 0.3s ease, transform 0.3s ease; /* Button transition */
+
+}
+
+
+.cta-button:hover {
+
+    background: #2bb15c;
+
+    color: #fff;
+
+    transform: scale(1.05); /* Slightly enlarge on hover */
+
+}
+
+
+h2 {
+    text-align: center;
+
+    color: #007bff;
+
+    animation: fadeIn 1s ease forwards; /* Fade-in effect */
+
+}
+h3{
+    margin-left: 1rem;
+}
+
+p{
+    margin-left: 1rem;
+}
+
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(-20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+#services {
+
+    margin: 40px 0; /* Margin above and below the section */
+
+    text-align: center; /* Center the text */
+
+}
+
+
+.service-card {
+
+    background-color: #ffffff; /* White background for cards */
+
+    border-radius: 10px; /* Rounded corners */
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
+
+    padding: 30px; /* Increased padding inside the card */
+
+    margin: 15px; /* Margin around the card */
+
+    position: relative; /* Position for 3D effect */
+
+    height: 500px; /* Fixed height for the card */
+
+}
+
+
+.service-card:hover {
+
+    transform: translateY(-10px); /* Lift the card on hover */
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+
+}
+
+
+.service-photo {
+
+    width: 270px; /* Fixed width for the photo */
+
+    height: 270px; /* Fixed height for the photo */
+
+    border-radius: 10px; /* Rounded corners for the photo */
+
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+
+    margin-bottom: 15px; /* Space below the photo */
+
+}
+
+
+.service-card h3 {
+
+    font-size: 22px; /* Increased font size for the service title */
+
+    color: #0056b3; /* Color for the title */
+
+    margin-bottom: 10px; /* Space below the title */
+
+}
+
+
+.service-card p {
+
+    font-size: 16px; /* Increased font size for the description */
+
+    color: #666; /* Gray color for text */
+
+    margin: 0; /* Remove default margin */
+
+}
+
+#approach {
+
+    background-color: #ffffff; /* White background for the section */
+
+    padding: 40px 20px; /* Padding for top/bottom and left/right */
+
+    border-radius: 10px; /* Rounded corners */
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+
+    margin: 20px 1rem; /* Margin for spacing between sections */
+
+}
+
+
+#approach h2 {
+
+    text-align: center; /* Center the heading */
+
+    color: #333; /* Darker color for better readability */
+
+    margin-bottom: 20px; /* Space below the heading */
+
+}
+
+
+.approach-card {
+
+    background: #f0f8ff; /* Light blue background for approach cards */
+
+    border: 1px solid #007bff; /* Border color */
+
+    border-radius: 5px; /* Rounded corners for approach cards */
+
+    padding: 20px; /* Padding for content */
+
+    margin: 15px 0; /* Margin for spacing between approach cards */
+
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
+
+}
+
+
+.approach-card h3 {
+
+    color: #007bff; /* Blue color for approach titles */
+
+    margin-top: 0; /* Remove top margin for headings */
+
+}
+
+
+.approach-card p {
+
+    color: #555; /* Dark gray color for approach descriptions */
+
+}
+
+
+.approach-card:hover {
+
+    transform: translateY(-5px); /* Lift effect on hover */
+
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3); /* Deeper shadow on hover */
+
+}
+
+ul {
+
+    list-style-type: none;
+
+    padding: 0;
+
+}
+.card {
+
+    width: 300px;
+
+    height: 200px;
+
+    background: #fff;
+
+    border-radius: 10px;
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+    transition: transform 0.5s;
+
+    transform-style: preserve-3d;
+
+}
+
+
+.card:hover {
+
+    transform: rotateY(10deg) rotateX(10deg); /* 3D rotation on hover */
+
+}
+
+#industries {
+
+    background-color: #f9f9f9; /* Light background for the section */
+
+    padding: 40px 20px; /* Padding for top/bottom and left/right */
+
+    border-radius: 10px; /* Rounded corners */
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+
+    margin: 20px 0; /* Margin for spacing between sections */
+
+}
+
+#industries {
+
+    margin: 20px 0; /* Margin above and below the section */
+
+}
+
+
+.industries-carousel .carousel-item {
+ 
+
+    height: 70vh; /* Set the height of the carousel item to 70% of the viewport height */
+
+}
+
+
+.industries-carousel .carousel-item img {
+
+    height: 100%; /* Make the image fill the height of the carousel item */
+
+    object-fit: cover; /* Ensure the image covers the entire area without distortion */
+
+    border-radius: 10px; /* Rounded corners for images */
+
+}
+
+
+.industries-carousel .carousel-caption {
+
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for captions */
+
+    color: white; /* White text color for better contrast */
+
+    padding: 10px; /* Padding around the caption text */
+
+    border-radius: 5px; /* Rounded corners for captions */
+
+}
+
+
+.industries-control {
+
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background for controls */
+
+    border-radius: 50%; /* Round shape */
+
+    width: 50px; /* Width of the control buttons */
+
+    height: 50px; /* Height of the control buttons */
+
+    display: flex; /* Center the icon */
+
+    align-items: center; /* Center vertically */
+
+    justify-content: center; /* Center horizontally */
+
+    transition: background-color 0.3s; /* Smooth transition for background color */
+
+}
+
+
+
+
+.industries-control:hover {
+
+    background-color: rgba(255, 255, 255, 1); /* Solid background on hover */
+
+}
+
+
+.industries-prev-icon,
+
+.industries-next-icon {
+
+    font-size: 24px; /* Size of the icons */
+
+    color: #0056b3; /* Color for the icons */
+
+}
+#industriesCarousel .carousel-control-next,  #industriesCarousel .carousel-control-prev {
+    top: 50% !important;
+}
+#industriesCarousel .carousel-control-next{
+right:2rem !important;
+}
+#industriesCarousel .carousel-control-prev{
+    left:2rem !important;
+
+}
+
+#industries h2 {
+
+    text-align: center; /* Center the heading */
+
+    color: #333; /* Darker color for better readability */
+
+    margin-bottom: 20px; /* Space below the heading */
+
+}
+
+
+.industry-list {
+
+    list-style-type: none; /* Remove default list styling */
+
+    padding: 0; /* Remove default padding */
+
+    display: flex; /* Use flexbox for layout */
+
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+
+    justify-content: center; /* Center the list items */
+
+}
+
+
+.industry-list li {
+
+    background: #007bff; /* Background color for list items */
+
+    color: white; /* Text color */
+
+    padding: 15px 20px; /* Padding for list items */
+
+    margin: 10px; /* Margin for spacing between items */
+
+    border-radius: 5px; /* Rounded corners for list items */
+
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
+
+    cursor: pointer; /* Pointer cursor on hover */
+
+}
+
+
+.industry-list li:hover {
+
+    transform: translateY(-5px); /* Lift effect on hover */
+
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3); /* Deeper shadow on hover */
+
+}
+
+.contact-container {
+
+    display: flex; /* Use flexbox for layout */
+
+    justify-content: space-between; /* Space between the two sections */
+
+    margin-top: 20px; /* Space above the contact container */
+
+}
+
+
+.contact-info, .consultation-request {
+
+    width: 48%; /* Set width to 48% for both sections */
+
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for depth */
+
+    padding: 20px; /* Add padding for content */
+
+    background: #f9f9f9; /* Light background for sections */
+
+    border-radius: 5px; /* Rounded corners */
+
+}
+
+
+.contact-info h3, .consultation-request h3 {
+
+    margin-top: 0; /* Remove top margin for headings */
+
+}
+
+.contact-info h3 {
+
+    color: #0056b3; /* Color for the heading */
+
+    margin-bottom: 2rem; /* Space below the heading */
+    margin-top: 1rem; 
+
+}
+
+
+.contact-info p {
+
+    color: #333; /* Darker color for text */
+
+    margin-bottom: 10px; /* Space below paragraphs */
+
+}
+
+
+.contact-details {
+
+    margin-bottom: 20px; /* Space below contact details */
+
+}
+
+
+.contact-details a {
+
+    color: #0056b3; /* Color for links */
+
+    text-decoration: none; /* Remove underline */
+
+}
+
+
+.contact-details a:hover {
+
+    text-decoration: underline; /* Underline on hover */
+
+}
+
+#testimonials {
+
+    background-color: #f9f9f9; /* Light background for the section */
+
+    padding: 40px 20px; /* Padding for top/bottom and left/right */
+
+    border-radius: 10px; /* Rounded corners */
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+
+    margin: 20px 1rem; /* Margin for spacing between sections */
+
+}
+
+
+#testimonials h2 {
+
+    text-align: center; /* Center the heading */
+
+    color: #333; /* Darker color for better readability */
+
+    margin-bottom: 20px; /* Space below the heading */
+
+}
+
+
+.testimonial-card {
+
+    background: #ffffff; /* White background for testimonial cards */
+
+    border-left: 5px solid #007bff; /* Blue left border */
+
+    border-radius: 5px; /* Rounded corners for testimonial cards */
+
+    padding: 20px; /* Padding for content */
+
+    margin: 15px 0; /* Margin for spacing between testimonial cards */
+
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
+
+}
+
+
+.testimonial-card p {
+
+    color: #555; /* Dark gray color for testimonial text */
+
+}
+
+
+.testimonial-card:hover {
+
+    transform: translateY(-5px); /* Lift effect on hover */
+
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3); /* Deeper shadow on hover */
+
+}
+
+#newsletters {
+
+    margin: 40px 0; /* Margin above and below the section */
+
+    text-align: center; /* Center the text */
+
+}
+
+
+.newsletter-card {
+
+    background-color: #ffffff; /* White background for cards */
+
+    border-radius: 10px; /* Rounded corners */
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
+
+    padding: 40px; /* Padding inside the card */
+
+    margin: 15px; /* Margin around the card */
+
+    position: relative; /* Position for 3D effect */
+}
+
+
+.newsletter-card:hover {
+
+    transform: translateY(-10px); /* Lift the card on hover */
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+
+}
+
+
+.newsletter-title {
+
+    text-align: left;
+    font-size: 22px; /* Font size for the title */
+
+    font-weight: bold; /* Bold text */
+
+    color: #8c3030; /* Color for the title */
+
+    margin-bottom: 10px; /* Space below the title */
+
+}
+
+
+.newsletter-author,
+
+.newsletter-date {
+    text-align: left;
+
+    font-size: 14px; /* Font size for author and date */
+
+    color: #666; /* Gray color for text */
+
+    margin: 0; /* Remove default margin */
+    text-decoration: none !important;
+
+}
+
+#partners {
+
+    margin: 40px 0; /* Margin above and below the section */
+
+    text-align: center; /* Center the text */
+
+}
+
+
+.partner-card {
+
+    background-color: #ffffff; /* White background for cards */
+
+    border-radius: 10px; /* Rounded corners */
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
+
+    padding: 20px; /* Padding inside the card */
+
+    margin: 15px; /* Margin around the card */
+
+    position: relative; /* Position for 3D effect */
+
+}
+
+
+.partner-card:hover {
+
+    transform: translateY(-10px); /* Lift the card on hover */
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+
+}
+
+
+.partner-photo {
+
+    width: 180px; /* Width of the photo */
+
+    height: 180px; /* Height of the photo */
+
+    border-radius: 50%; /* Circular photo */
+
+    border: 3px solid #0056b3; /* Border around the photo */
+
+    margin-bottom: 15px; /* Space below the photo */
+
+}
+
+
+.partner-name {
+
+    font-size: 20px; /* Font size for the name */
+
+    font-weight: bold; /* Bold text */
+
+    color: #0056b3; /* Color for the name */
+
+    margin-bottom: 5px; /* Space below the name */
+
+}
+
+
+.partner-degree,
+
+.partner-experience {
+
+    font-size: 14px; /* Font size for degree and experience */
+
+    color: #666; /* Gray color for text */
+
+    margin: 0; /* Remove default margin */
+
+}
+
+#blog {
+
+    background-color: #ffffff; /* White background for the section */
+
+    padding: 40px 20px; /* Padding for top/bottom and left/right */
+
+    border-radius: 10px; /* Rounded corners */
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+
+    margin: 20px 1rem; /* Margin for spacing between sections */
+
+}
+
+
+#blog h2 {
+
+    text-align: center; /* Center the heading */
+
+    color: #333; /* Darker color for better readability */
+
+    margin-bottom: 20px; /* Space below the heading */
+
+}
+
+
+.blog-article {
+
+    background: #f0f8ff; /* Light blue background for blog articles */
+
+    border-radius: 5px; /* Rounded corners for blog articles */
+
+    padding: 20px; /* Padding for content */
+
+    margin: 15px 0; /* Margin for spacing between blog articles */
+
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
+
+}
+
+
+.blog-article h3 {
+
+    color: #007bff; /* Blue color for article titles */
+
+    margin-top: 0; /* Remove top margin for headings */
+
+}
+
+
+.blog-article p {
+
+    color: #555; /* Dark gray color for article descriptions */
+
+}
+
+
+.blog-article:hover {
+
+    transform: translateY(-5px); /* Lift effect on hover */
+
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3); /* Deeper shadow on hover */
+
+}
+
+
+.social-media {
+
+    display: flex; /* Use flexbox for layout */
+
+    justify-content: center; /* Center the icons */
+
+    align-items: center; /* Center vertically */
+
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+
+}
+
+
+.social-icon {
+
+    text-decoration: none; /* Remove underline */
+
+    color: #2218a7; /* White color for icons */
+
+    font-size: 24px; /* Size of the icons */
+
+    margin: 0 15px; /* Space between icons */
+
+    transition: transform 0.3s, color 0.3s; /* Smooth transition for hover effect */
+
+    display: flex; /* Use flexbox for icon and text */
+
+    flex-direction: column; /* Stack icon above text */
+
+    align-items: center; /* Center items */
+
+}
+
+
+.social-icon span {
+
+    margin-top: 5px; /* Space between icon and text */
+
+    font-size: 14px; /* Font size for text */
+
+    color: #fff; /* White color for text */
+
+}
+
+
+.social-icon:hover {
+
+    transform: scale(1.2); /* Slightly enlarge the icon on hover */
+
+    color: #b31d1d; /* Change color on hover */
+
+}
+
+
+.follow-us {
+
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
+    text-align: center; 
+
+
+    color: #0056b3; /* Color for the heading */
+
+    font-family: 'Arial', sans-serif;
+
+}
+
+footer {
+
+    text-align: center;
+
+    padding: 20px 0;
+
+    background: #007bff;
+
+    color: #fff;
+
+    position: relative;
+
+    transform: translateZ(50px); /* Adds depth */
+
+}
+
+
+footer a {
+
+    color: #fff;
+
+    text-decoration: none;
+
+}
+
+form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    max-width: 400px; /* Set a max width for the form */
+
+    margin: 20px auto; /* Center the form */
+
+    padding: 20px;
+
+    background: #f9f9f9; /* Light background for the form */
+
+    border-radius: 10px; /* Rounded corners */
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for 3D effect */
+
+}
+
+
+form label {
+
+    margin: 10px 0 5px;
+
+    font-weight: bold; /* Make labels bold */
+
+    color: #333; /* Darker color for better readability */
+
+}
+
+
+form input, form textarea {
+
+    padding: 12px; /* Increased padding for a more spacious feel */
+
+    margin-bottom: 15px; /* Increased margin for better spacing */
+
+    border: 1px solid #ccc;
+
+    border-radius: 5px;
+
+    transition: all 0.3s ease; /* Smooth transition for focus effect */
+
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1); /* Inner shadow for depth */
+
+}
+
+
+form input:focus, form textarea:focus {
+
+    border-color: #007bff; /* Change border color on focus */
+
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Outer glow effect */
+
+    outline: none; /* Remove default outline */
+
+}
+
+
+form button {
+
+    padding: 12px;
+
+    background: linear-gradient(145deg, #007bff, #0056b3); /* Gradient background */
+
+    color: #fff;
+
+    border: none;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3); /* Shadow for button */
+
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+
+}
+
+
+form button:hover {
+
+    background: linear-gradient(145deg, #0056b3, #007bff); /* Reverse gradient on hover */
+
+    transform: translateY(-2px); /* Lift effect on hover */
+
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.4); /* Deeper shadow on hover */
+
+}
