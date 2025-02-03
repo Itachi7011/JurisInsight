@@ -42,20 +42,37 @@
 
 
     <nav class="navbar">
+
         <div class="container">
 
-            <ul class="nav-links">
+            <div class="logo">Logo</div>
+
+            <div class="toggle" id="toggle-button">☰</div> <!-- Toggle button -->
+
+            <ul class="nav-links" id="nav-links">
+
                 <li><a href="#about">About Us</a></li>
+
                 <li><a href="#services">Services</a></li>
+
                 <li><a href="#industries">Industries We Serve</a></li>
+
                 <li><a href="#approach">Approach</a></li>
+
                 <li><a href="#testimonials">Testimonials</a></li>
+
                 <li><a href="#blog">Insights</a></li>
+
                 <li><a href="#newsletters">Newsletters</a></li>
+
                 <li><a href="#partners">Partners</a></li>
+
                 <li><a href="#contact">Contact Us</a></li>
+
             </ul>
+
         </div>
+
     </nav>
 
 
@@ -1028,6 +1045,25 @@
         <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
 
     </footer>
+
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const toggleButton = document.getElementById("toggle-button");
+
+            const navLinks = document.getElementById("nav-links");
+
+
+            toggleButton.addEventListener("click", function () {
+
+                navLinks.classList.toggle("active"); // Toggle the active class
+
+                toggleButton.textContent = navLinks.classList.contains("active") ? "✖" : "☰"; // Change button text
+
+            });
+
+        });
+    </script>
 
 
 
