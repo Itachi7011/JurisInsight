@@ -59,9 +59,6 @@ header {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
 }
 
-* Media Queries for .main-section-image */
-
-
 /* Styles for max-width: 1244px */
 
 @media (max-width: 1244px) {
@@ -114,15 +111,19 @@ header {
   align-items: center; /* Center items vertically */
 }
 
-
 .logo {
-    color: white; /* White color for the logo */
-    font-size: 24px; /* Font size for the logo */
-    text-decoration: none; /* Remove underline */
-    align-self: center; /* Center the logo vertically */
-    margin-right: auto; /* Push the logo to the left */
+  color: white; /* White color for the logo */
+  font-size: 24px; /* Font size for the logo */
+  text-decoration: none; /* Remove underline */
+  flex-shrink: 0; /* Center the logo vertically */
+  margin-right: 20px; /* Push the logo to the left */
+  transition: color 0.3s, transform 0.3s; /* Smooth transition for hover effect */
 }
+.logo:hover {
+  color: #f0f8ff; /* Change color on hover */
 
+  transform: scale(1.05); /* Slightly enlarge the logo on hover */
+}
 
 .nav-links {
   list-style: none; /* Remove default list styling */
@@ -151,6 +152,7 @@ header {
 
 .nav-links a:hover {
   color: #f0f8ff; /* Light color on hover */
+  background-color: #b31d1d;
 
   transform: scale(1.1); /* Slightly enlarge the link on hover */
 
@@ -171,137 +173,117 @@ header {
 /* Responsive Styles */
 
 .navbar {
+  background-color: #0056b3; /* Slightly darker blue for the navbar */
 
-    background-color: #0056b3; /* Slightly darker blue for the navbar */
+  padding: 15px 20px; /* Padding for the navbar */
 
-    padding: 15px 20px; /* Padding for the navbar */
+  position: sticky; /* Make the navbar sticky */
 
-    position: sticky; /* Make the navbar sticky */
+  top: 0; /* Stick to the top */
 
-    top: 0; /* Stick to the top */
+  z-index: 1000; /* Ensure it stays above other content */
 
-    z-index: 1000; /* Ensure it stays above other content */
-
-    transition: background-color 0.3s; /* Smooth transition for background color */
-
+  transition: background-color 0.3s; /* Smooth transition for background color */
 }
-
 
 .navbar .container {
+  display: flex; /* Use flexbox for layout */
 
-    display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space between logo and links */
 
-    justify-content: space-between; /* Space between logo and links */
-
-    align-items: center; /* Center items vertically */
-
+  align-items: center; /* Center items vertically */
 }
-
 
 .nav-links {
+  list-style: none; /* Remove default list styling */
 
-    list-style: none; /* Remove default list styling */
+  display: flex; /* Use flexbox for links */
 
-    display: flex; /* Use flexbox for links */
+  margin: 0; /* Remove default margin */
 
-    margin: 0; /* Remove default margin */
-
-    padding: 0; /* Remove default padding */
-
+  padding: 0; /* Remove default padding */
 }
-
 
 .nav-links li {
-
-    margin-left: 20px; /* Space between links */
-
+  margin-left: 20px; /* Space between links */
 }
-
 
 .nav-links a {
+  color: white; /* White color for links */
 
-    color: white; /* White color for links */
+  text-decoration: none; /* Remove underline */
 
-    text-decoration: none; /* Remove underline */
+  font-size: 16px; /* Font size for links */
 
-    font-size: 16px; /* Font size for links */
+  transition: color 0.3s, transform 0.3s; /* Smooth transition for hover effect */
 
-    transition: color 0.3s, transform 0.3s; /* Smooth transition for hover effect */
-
-    padding: 5px 10px;
-
+  padding: 5px 10px;
 }
-
 
 .nav-links a:hover {
+  color: #f0f8ff; /* Light color on hover */
+  background-color: #b31d1d;
 
-    color: #f0f8ff; /* Light color on hover */
+  transform: scale(1.1); /* Slightly enlarge the link on hover */
 
-    transform: scale(1.1); /* Slightly enlarge the link on hover */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.2
+  ); /* Add a light background on hover */
 
-    background-color: rgba(255, 255, 255, 0.2); /* Add a light background on hover */
+  border-radius: 5px; /* Rounded corners for the hover effect */
 
-    border-radius: 5px; /* Rounded corners for the hover effect */
+  padding: 5px 10px; /* Add padding to the hover effect */
 
+  text-decoration: none;
 }
 .toggle {
-    display: none; /* Hide toggle button by default */
-  
-    font-size: 24px; /* Font size for toggle button */
-  
-    color: white; /* Color for toggle button */
-  }
+  display: none; /* Hide toggle button by default */
 
+  font-size: 24px; /* Font size for toggle button */
+
+  color: white; /* Color for toggle button */
+}
 
 /* Responsive Styles */
 
 @media (max-width: 770px) {
+  .nav-links {
+    display: none; /* Hide links by default */
 
-    .nav-links {
+    flex-direction: column; /* Stack links vertically */
 
-        display: none; /* Hide links by default */
+    position: absolute; /* Position links absolutely */
 
-        flex-direction: column; /* Stack links vertically */
+    background-color: #0056b3; /* Background color for dropdown */
 
-        position: absolute; /* Position links absolutely */
+    top: 48px; /* Position below the navbar */
 
-        background-color: #0056b3; /* Background color for dropdown */
+    left: 0; /* Align to the left */
 
-        top: 60px; /* Position below the navbar */
+    width: 100%; /* Full width */
 
-        left: 0; /* Align to the left */
+    padding: 10px 0; /* Padding for dropdown */
 
-        width: 100%; /* Full width */
+    z-index: 999; /* Ensure it stays above other content */
+  }
 
-        padding: 10px 0; /* Padding for dropdown */
+  .nav-links.active {
+    display: flex; /* Show links when active */
+  }
 
-        z-index: 999; /* Ensure it stays above other content */
+  .toggle {
+    display: block; /* Show toggle button */
 
-    }
+    cursor: pointer; /* Pointer cursor */
 
+    font-size: 24px; /* Size of the toggle button */
 
-    .nav-links.active {
-
-        display: flex; /* Show links when active */
-
-    }
-
-
-    .toggle {
-
-        display: block; /* Show toggle button */
-
-        cursor: pointer; /* Pointer cursor */
-
-        font-size: 24px; /* Size of the toggle button */
-
-        color: white; /* Color of the toggle button */
-
-    }
-
+    color: white; /* Color of the toggle button */
+  }
 }
-
-
 
 .container {
   width: 80%;
