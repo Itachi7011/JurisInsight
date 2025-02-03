@@ -117,7 +117,9 @@ header {
   text-decoration: none; /* Remove underline */
   flex-shrink: 0; /* Center the logo vertically */
   margin-right: 20px; /* Push the logo to the left */
+  margin-left: -15rem; /* Push the logo to the left */
   transition: color 0.3s, transform 0.3s; /* Smooth transition for hover effect */
+
 }
 .logo:hover {
   color: #f0f8ff; /* Change color on hover */
@@ -272,6 +274,10 @@ header {
 
   .nav-links.active {
     display: flex; /* Show links when active */
+  }
+
+  .logo{
+    margin-left: 0px;
   }
 
   .toggle {
