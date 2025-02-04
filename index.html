@@ -1059,7 +1059,7 @@
                 navLinks.classList.toggle("active"); // Toggle the active class
 
                 toggleButton.textContent = navLinks.classList.contains("active") ? "✖" : "☰"; // Change button text
-
+                toggleButton.style.color = navLinks.classList.contains("active") ? "white" : ""; // Set to white or reset
             });
 
         });
