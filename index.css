@@ -1798,3 +1798,15 @@ form button:hover {
     padding: 15px;
   }
 }
+/* Authnester backlink styles */
+.authnester-link {
+  color: #4caf50 !important;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.authnester-link:hover {
+  color: #45a049 !important;
+  text-decoration: underline;
+}
